@@ -4,20 +4,20 @@ public static class BracketChecker
 {
     public static bool Check(string input)
     {
-        var openCount = 0;
-        var closedCount = 0;
-        foreach (var c in input)
+        Stack<char> open = new Stack<char>();
+        foreach (char c in input)
         {
             switch (c)
             {
                 case '(':
-                    openCount++;
+                    open.Push(c);
                     break;
                 case ')':
-                    closedCount++;
+                    if (open.Count == 0) return false;
+                    open.Pop();
                     break;
             }
         }
-        return openCount == closedCount;
+        return open.Count == 0;
     }
 }
