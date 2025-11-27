@@ -13,4 +13,4 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - uses: actions/checkout@v4
-    - run: dotnet run build
+    - run: dotnet build
