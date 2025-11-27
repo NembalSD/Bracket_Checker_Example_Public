@@ -19,4 +19,11 @@ public class BracketCheckerTest
         var result = BracketChecker.Check("(hello()");
         Assert.IsFalse(result);
     }
+    [TestMethod]
+    public void FirstCharClosed_Should_ReturnFalse()
+    {
+        var str = ")()()(()";
+        var result = BracketChecker.Check(str);
+        Assert.IsFalse(result);
+    }
 }
